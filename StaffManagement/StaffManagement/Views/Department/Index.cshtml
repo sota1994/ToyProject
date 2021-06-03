@@ -1,0 +1,59 @@
+﻿@model StaffManagement.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "Department";
+}
+
+<!--<div id ="departmentList">
+
+    @foreach (var department in Model.Departments)
+    {
+        <div id="@department.Id">
+            <text class="department-style" onclick="getChildDepartments(@department.Id, 1)">@department.Name</text>  
+        </div>
+    }
+
+</div>
+
+<style>
+
+    .department-style {
+        border: 1px solid #000000;
+    }
+
+</style>
+<script>
+   
+    function getChildDepartments(id, padding) {
+        if ($(`#${id}`).find('div').length !== 0) {
+            $("div").remove(`.child${id}`);
+        }
+        else {
+            $.ajax({
+                url: `Department/GetChildrenDepartments?id=${id}`,
+                method: "GET",
+                success: function(data) {
+                    //Add child div
+                    data.forEach((item) => {
+                        $(`#${id}`).append(`<div class="child${id}" id=${item.id} style="padding-left:${padding}em"> <text onclick="getChildDepartments(${item.id}, ${padding + 1})">  ${item.name}</text> </div>`);
+                    });
+                }
+            });
+        }
+    };
+</script>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="scripts/app.js"></script>
+    <title></title>
+</head>
+<body>
+<div id="message"></div>
+<div>
+    Compiler: <input id="compiler" value="TypeScript" onkeyup="document.getElementById('message').innerText = sayHello()" /><br />
+    Framework: <input id="framework" value="ASP.NET" onkeyup="document.getElementById('message').innerText = sayHello()" />
+</div>
+</body>
+</html>

@@ -1,0 +1,52 @@
+﻿@model List<StaffManagement.Models.Employee>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div >
+    <h1 class="display-4">Staff</h1>
+    <p>Staff list: </p>
+    <div class ="text-center">
+        <div style="width: 100%">
+            <table style="width: 100%">
+                <tr>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Manager</th>
+                    <th>Manage</th>
+                </tr>
+                @foreach (var employee in Model)
+                {
+                    <tr>
+                        <th>@employee.Id</th>
+                        <th>@employee.Name</th>
+                        <th>@employee.Department.Name</th>
+                        <th>@employee.Manager?.Name</th>
+                        <th>
+                            @foreach (var e in employee.Employees)
+                            {
+                                @e.Name; <text>, </text>
+
+                            }
+                        </th>
+                    </tr>
+                }
+            </table>
+            
+            <div class="row btn-group" style="width: 100%; text-align: justify;">
+                <div style="width: 50%; text-align: right">
+                    <button class="btn btn-primary" >
+                        Add
+                    </button>
+                </div>
+                <div style="width: 50%; text-align: left">
+                    <button class="btn btn-primary" >
+                        Delete
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+</div>
